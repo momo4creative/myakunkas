@@ -11,7 +11,7 @@
 	let loading = $state(false);
 
 	function submit() {
-		return handleSubmit('Login pengguna.', {
+		return handleSubmit('Register pengguna.', {
 			onSubmit: () => (loading = true),
 			onSuccess: () => goto('/auth/login'),
 			onFailure: () => (loading = false)
@@ -21,10 +21,6 @@
 
 <div class="container mx-auto p-6 md:max-w-sm">
 	<h1 class="my-6 text-4xl font-bold">Register</h1>
-
-	{#if loading}
-		<p class="my-3">Loading..</p>
-	{/if}
 
 	{#if form?.message}
 		<div class="border bg-white p-3">
@@ -41,12 +37,12 @@
 		<Input name="username" label="Username" autocomplete="username" />
 		<Input type="password" name="password" label="Password" />
 		<Input type="password" name="confirmPassword" label="Confirm Password" />
-		<Button color="blue" type="submit" class="mt-6">Register</Button>
+		<Button disabled={loading} color="blue" type="submit" class="mt-6">Register</Button>
 	</form>
 
 	<div class="text-center">
 		<div class="inline bg-slate-100 px-3">or</div>
 		<hr class="-mt-2.5 mb-6" />
-		<Button onclick={() => goto('/auth/login')} class="w-full">Login</Button>
+		<Button disabled={loading} onclick={() => goto('/auth/login')} class="w-full">Login</Button>
 	</div>
 </div>
