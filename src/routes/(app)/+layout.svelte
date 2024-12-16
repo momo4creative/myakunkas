@@ -18,3 +18,7 @@
 <div class="pb-6">
 	{@render children()}
 </div>
+
+<footer class="absolute inset-x-0 bottom-0 flex items-center justify-end bg-slate-300">
+	<small class="px-3 py-1 leading-none">V 0.0.1</small>
+</footer>
